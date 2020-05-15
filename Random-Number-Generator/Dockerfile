@@ -1,6 +1,6 @@
 FROM python
 
-RUN pip install flask flask_sqlalchemy
+RUN pip install flask flask_sqlalchemy psycopg2
 
 COPY app.py /app/app.py
 

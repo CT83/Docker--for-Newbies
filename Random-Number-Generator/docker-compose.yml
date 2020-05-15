@@ -2,11 +2,21 @@ version: "3.3"
 
 services:
   app:
-    container_name: random-gen
+    container_name: random-gen-app
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-     - ./cars:/cars
     ports:
       - 5000:5000
+    depends_on: 
+      - database
+
+  database:
+    container_name: random-gen-db
+    image: postgres:11
+    environment:
+      - POSTGRES_USER=rohan
+      - POSTGRES_DB=rand_db
+      - POSTGRES_PASSWORD=1234
+    volumes:
+      - ./database/db_data:/var/lib/postgresql
