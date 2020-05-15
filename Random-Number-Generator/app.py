@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://rohan:1234}@database:5432/rand_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://rohan:1234@database:5432/rand_db'
 db = SQLAlchemy(app)
 
 class RandomNumbers(db.Model):
